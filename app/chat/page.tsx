@@ -154,7 +154,19 @@ function ActiveBubble({ onStop }: { onStop: () => void }) {
 }
 
 /* ─── File Manager Panel ────────────────────────────────────────────── */
-const FILE_SECTIONS = [
+interface FileItem {
+  icon: React.ReactNode;
+  name: string;
+  action: string;
+  generated?: boolean;
+}
+
+interface FileSection {
+  label: string;
+  files: FileItem[];
+}
+
+const FILE_SECTIONS: FileSection[] = [
   {
     label: "UPLOADED",
     files: [
@@ -172,8 +184,8 @@ const FILE_SECTIONS = [
   {
     label: "GENERATED",
     files: [
-      { icon: <FileText className="w-3.5 h-3.5 text-emerald-400" />, name: "Q3_Report.pdf",          action: "download", generated: true },
-      { icon: <Image className="w-3.5 h-3.5 text-emerald-400" />,    name: "comparison_chart.png",   action: "download", generated: true },
+      { icon: <FileText className="w-3.5 h-3.5 text-emerald-400" />, name: "Q3_Report.pdf",        action: "download", generated: true },
+      { icon: <Image className="w-3.5 h-3.5 text-emerald-400" />,    name: "comparison_chart.png", action: "download", generated: true },
     ],
   },
 ];
